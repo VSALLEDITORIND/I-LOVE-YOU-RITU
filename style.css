@@ -1,0 +1,94 @@
+body {
+    background-color: #fce4ec;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+.envelope-wrapper {
+    position: relative;
+    cursor: pointer;
+}
+
+.envelope {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    background-color: #f44336;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+/* এনভেলাপের ঢাকনা */
+.envelope-lid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 150px solid transparent;
+    border-right: 150px solid transparent;
+    border-top: 100px solid #d32f2f;
+    transform-origin: top;
+    transition: transform 0.5s ease;
+    z-index: 3;
+}
+
+/* কার্ডের ডিজাইন */
+.card-wrapper {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 260px;
+    height: 170px;
+    background-color: white;
+    z-index: 2;
+    transition: transform 0.5s ease;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.card-body {
+    text-align: center;
+    color: #e91e63;
+}
+
+.card-title {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+/* হার্ট সিল */
+.heart-seal {
+    position: absolute;
+    top: 90px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30px;
+    height: 30px;
+    background-color: #ffeb3b;
+    clip-path: path('M15 27.2l-2.1-1.9C5.4 18.9 2 15.5 2 11.5 2 8.5 4.5 6 7.5 6c1.7 0 3.4.8 4.5 2.1C13.1 6.8 14.8 6 16.5 6 19.5 6 22 8.5 22 11.5c0 4-3.4 7.4-10.9 13.8z');
+    z-index: 4;
+    transition: 0.5s;
+}
+
+/* অ্যানিমেশন ট্র্রিগার */
+.envelope-wrapper:hover .envelope-lid {
+    transform: rotateX(180deg);
+    z-index: 1;
+}
+
+.envelope-wrapper:hover .card-wrapper {
+    transform: translate(-50%, -100px);
+    z-index: 2;
+}
+
+.envelope-wrapper:hover .heart-seal {
+    opacity: 0;
+}
